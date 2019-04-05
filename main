@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+int N, s, t, previousT = 0; //N is how many pairs of dates, s is the starting date of the pair, t is the last date of the pair, previousT tracks the last date of the previous pair to check for date overlaps
+int out = 0;
+
+
+  cin >> N;
+    for(int j = 0;j < N;j++)
+    {
+      int dateDifference = 0;
+      //cout << "Enter the first date: " << endl;
+      cin >> s;
+      //cout << "Enter the second date: " << endl;
+      cin >> t;
+      //cout << "date1: " << s << " date2: " << t << endl;
+      
+      if(s <= previousT)
+      {
+        dateDifference = t - previousT;
+      }
+      else
+      {
+        dateDifference = t - s + 1;
+      }
+      out += dateDifference;
+      previousT = t;
+    }
+  cout << out;
+}
